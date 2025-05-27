@@ -52,7 +52,7 @@ export const Footer = ({ setActive, active }) => {
         </div>
         <div className="boglanish flex items-center gap-[154px] pb-[50px] border-[#fff] border-b ">
           <div>
-            <h3 className="bg-[#b9ff66] font-[500] text-[20px] px-[7px] leading-[100%] w-[192px] mb-[27px] ">
+            <h3 className="bg-[#b9ff66] font-[500] text-[20px] px-[7px] leading-[100%] w-[192px] mb-[27px] rounded-[7px]">
               Biz bilan bog’lanish
             </h3>
             <p>
@@ -77,7 +77,7 @@ export const Footer = ({ setActive, active }) => {
               </a>
             </p>
           </div>
-          <div className="bg-[#292a32] py-[58px] px-[40px] flex items-center gap-[20px] w-[517px] ">
+          <div className="bg-[#292a32] py-[58px] px-[40px] flex items-center gap-[20px] w-[517px] border rounded-[14px] ">
             <input
               className="font-[400] text-[18px] text-white placeholder:text-white  py-[22px] pl-[35px] border rounded-[14px] "
               type="tel"

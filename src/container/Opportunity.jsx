@@ -10,7 +10,7 @@ export const Opportunity = () => {
     <>
       <div id="Imkoniyatlar" className="mt-[140px] ">
         <div className="flex gap-[40px] mb-[62px] ">
-          <h3 className="text-black font-medium text-[28px] px-[7px] rounded-[5px]  bg-[#b9ff66] text-center my-auto">
+          <h3 className="text-black font-medium text-[28px] px-[7px] rounded-[5px]  bg-[#b9ff66] text-center  h-[45px]">
             Imkoniyatlar
           </h3>
           <p className="w-[508px] font-[400] text-[18px]">
