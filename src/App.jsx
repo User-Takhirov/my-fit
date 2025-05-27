@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container } from "./Components/Container";
 import { Brands } from "./container/Brands";
 import { Faq } from "./container/Faq";
@@ -9,17 +10,18 @@ import { Plan } from "./container/Plan";
 import { Questions } from "./container/Questions";
 
 function App() {
+  const [active, setActive] = useState(null);
   return (
     <>
       <Container>
-        <Navbar />
+        <Navbar active={active} setActive={setActive} />
         <Hero />
         <Brands />
         <Opportunity />
         <Questions />
         <Plan />
         <Faq />
-        <Footer />
+        <Footer active={active} setActive={setActive} />
       </Container>
     </>
   );
