@@ -19,7 +19,7 @@ function App() {
         <Hero />
         <Brands />
         <Opportunity />
-        <Questions /> */}
+        <Questions />
         <Plan />
         <Clients />
         <Faq />

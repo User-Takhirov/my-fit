@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
-<<<<<<< HEAD
-.Card {
-  box-shadow: 0 6px;
-=======
 body,
 html {
   scroll-behavior: smooth;
   transition: transform 1s ease-in-out;
->>>>>>> aa5626a2bdfee1ebdcfd32f31c09df3e95c169c5
+}
+
+.Card {
+  box-shadow: 0 6px;
 }
