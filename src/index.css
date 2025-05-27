@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.Card {
+  box-shadow: 0 6px;
+}

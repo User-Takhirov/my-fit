@@ -1,5 +1,6 @@
 import { Container } from "./Components/Container";
 import { Brands } from "./container/Brands";
+import { Clients } from "./container/Clients";
 import { Faq } from "./container/Faq";
 import { Footer } from "./container/Footer";
 import { Hero } from "./container/Hero";
@@ -12,14 +13,15 @@ function App() {
   return (
     <>
       <Container>
-        <Navbar />
+        {/* <Navbar />
         <Hero />
         <Brands />
         <Opportunity />
-        <Questions />
+        <Questions /> */}
         <Plan />
+        <Clients />
         <Faq />
-        <Footer />
+        {/* <Footer /> */}
       </Container>
     </>
   );
