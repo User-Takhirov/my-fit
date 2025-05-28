@@ -5,12 +5,10 @@ import { Clients } from "./container/Clients";
 import { Faq } from "./container/Faq";
 import { Footer } from "./container/Footer";
 import { Hero } from "./container/Hero";
-import { Navbar } from "./container/navbar";
+import { Navbar } from "./container/Navbar";
 import { Opportunity } from "./container/Opportunity";
 import { Plan } from "./container/Plan";
 import { Questions } from "./container/Questions";
-import Modal from "./container/Modal";
-
 function App() {
   const [active, setActive] = useState(null);
   return (
