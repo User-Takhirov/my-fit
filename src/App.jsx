@@ -9,6 +9,8 @@ import { Navbar } from "./container/Navbar";
 import { Opportunity } from "./container/Opportunity";
 import { Plan } from "./container/Plan";
 import { Questions } from "./container/Questions";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [active, setActive] = useState(null);
   return (

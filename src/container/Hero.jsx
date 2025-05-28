@@ -1,4 +1,5 @@
 import heroImage from "../Assets/hero.png";
+
 export const Hero = () => {
   return (
     <>
