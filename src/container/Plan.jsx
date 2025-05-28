@@ -1,6 +1,6 @@
 export const Plan = () => {
   return (
-    <div className="mb-[114px]">
+    <div id="Kuzatuv tizimi" className=" mb-[114px]">
       <div className="flex gap-[40px] mb-[60px]">
         <div className="bg-[#B9FF66] rounded-[8px] px-[7px]">
           <h2 className="font-medium text-[40px]">Kuzatuv Tizimi</h2>

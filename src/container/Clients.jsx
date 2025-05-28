@@ -2,7 +2,7 @@ import { Picture } from "../../public/icon";
 
 export const Clients = () => {
   return (
-    <div className="mb-[112px]">
+    <div id="Mijozlar fikri" className="mb-[112px]">
       <div className="flex gap-[40px] mb-[60px]">
         <div className="bg-[#B9FF66] rounded-[8px] px-[7px]">
           <h2 className="font-medium text-[40px]">Mijozlar fikri</h2>

@@ -1,9 +1,46 @@
+import { useState } from "react";
 import { FacebookIcon } from "../Assets/facebook-icon";
 import { FooterLogoIcon } from "../Assets/Footer-Logo-Icon";
 import { LinkedInIcon } from "../Assets/linked-in-icon";
 import { TwitterIcon } from "../Assets/twitter-icon";
+import { toast, ToastContainer } from "react-toastify";
 
 export const Footer = ({ setActive, active }) => {
+  const [phone, setPhone] = useState("");
+  const [error, setError] = useState("");
+
+  const isValidPhone = (value) => {
+    const uzPhoneRegex = /^(\+998|998)?[0-9]{9}$/;
+    return uzPhoneRegex.test(value);
+  };
+
+  const sendToTelegram = async () => {
+    if (!isValidPhone(phone)) {
+      setError("Iltimos, to‘g‘ri telefon raqam kiriting");
+      return;
+    }
+
+    setError("");
+
+    const BOT_TOKEN = "7896699651:AAEEYEttyklyAhTvVLN_DYysrrCuWVXN2iU";
+    const CHAT_ID = "1308171294";
+    const text = `📱 Yangi raqam: ${phone}`;
+
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: text,
+      }),
+    });
+
+    setPhone("");
+    toast.success("Telefon raqamingiz yuborildi!");
+  };
+
   return (
     <>
       <div className="bg-black px-[60px] pt-[35px] pb-[50px] rounded-t-[45px]">
@@ -52,7 +89,7 @@ export const Footer = ({ setActive, active }) => {
         </div>
         <div className="boglanish flex items-center gap-[154px] pb-[50px] border-[#fff] border-b ">
           <div>
-            <h3 className="bg-[#b9ff66] font-[500] text-[20px] px-[7px] leading-[100%] w-[192px] mb-[27px] ">
+            <h3 className="rounded-[10px] bg-[#b9ff66] font-[500] text-[20px] p-[7px] leading-[100%] w-[192px] mb-[27px] ">
               Biz bilan bog’lanish
             </h3>
             <p>
@@ -77,14 +114,22 @@ export const Footer = ({ setActive, active }) => {
               </a>
             </p>
           </div>
-          <div className="bg-[#292a32] py-[58px] px-[40px] flex items-center gap-[20px] w-[517px] ">
-            <input
-              className="font-[400] text-[18px] text-white placeholder:text-white  py-[22px] pl-[35px] border rounded-[14px] "
-              type="tel"
-              placeholder="Telefon raqam"
-            />
+          <div className="rounded-[10px] bg-[#292a32] py-[58px] px-[40px] flex items-center gap-[20px] w-[517px] ">
             <div>
-              <button className="font-[400] text-[28px] leading-[140%] text-center py-[20px] px-[35px] rounded-[14px] bg-[#b9ff66]">
+              <input
+                className="font-[400] text-[18px] text-white placeholder:text-zinc-400  py-[22px] pl-[35px] border rounded-[14px] "
+                type="text"
+                placeholder="+998XXXXXXXXX"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+              {error && <p className="text-red-500 text-[14px]">{error}</p>}
+            </div>
+            <div>
+              <button
+                onClick={sendToTelegram}
+                className="font-[400] text-[28px] leading-[140%] text-center py-[20px] px-[35px] rounded-[14px] bg-[#b9ff66] cursor-pointer"
+              >
                 Kutish
               </button>
             </div>
@@ -104,6 +149,11 @@ export const Footer = ({ setActive, active }) => {
           </p>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={700}
+        hideProgressBar={true}
+      />
     </>
   );
 };
