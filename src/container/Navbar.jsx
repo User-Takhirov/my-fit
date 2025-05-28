@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { LogoIcon } from "../Assets/Logo-Icon";
+import Modal from "./Modal";
 
 export const Navbar = ({ active, setActive }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -36,12 +38,16 @@ export const Navbar = ({ active, setActive }) => {
             ))}
           </ul>
           <div>
-            <button className="font-normal cursor-pointer text-[20px] leading-[140%] text-center text-black py-[20px] px-[35px] border rounded-[14px]">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="font-normal cursor-pointer text-[20px] leading-[140%] text-center text-black py-[20px] px-[35px] border rounded-[14px]"
+            >
               Kirish
             </button>
           </div>
         </div>
       </div>
+      {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
     </>
   );
 };

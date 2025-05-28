@@ -9,6 +9,7 @@ import { Navbar } from "./container/navbar";
 import { Opportunity } from "./container/Opportunity";
 import { Plan } from "./container/Plan";
 import { Questions } from "./container/Questions";
+import Modal from "./container/Modal";
 
 function App() {
   const [active, setActive] = useState(null);
