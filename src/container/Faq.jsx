@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Minus, Plus } from "../../public/icon";
 
 export const Faq = () => {
-  const [openIndex, setOpenIndex] = useState(null); // Track which FAQ is open
+  const [openIndex, setOpenIndex] = useState(null);
+  const contentRefs = useRef([]);
 
   const faqs = [
     {
@@ -15,25 +16,25 @@ export const Faq = () => {
       number: 2,
       title: "MyFit qanday ishlaydi?",
       description:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatem commodi blanditiis atque hic ab doloremque eos quia ea, voluptas quas excepturi culpa ullam ex dolor iure, aliquid illum facere!",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatem commodi blanditiis atque hic ab doloremque eos quia ea.",
     },
     {
       number: 3,
       title: "Vaznni qanday kuzatishim mumkin?",
       description:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatem commodi blanditiis atque hic ab doloremque eos quia ea, voluptas quas excepturi culpa ullam ex dolor iure, aliquid illum facere!",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatem commodi blanditiis atque hic ab doloremque eos quia ea.",
     },
     {
       number: 4,
       title: "Dietolog video darslari qanday foyda keltiradi?",
       description:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatem commodi blanditiis atque hic ab doloremque eos quia ea, voluptas quas excepturi culpa ullam ex dolor iure, aliquid illum facere!",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatem commodi blanditiis atque hic ab doloremque eos quia ea.",
     },
     {
       number: 5,
       title: "Suv ichish miqdorini qanday kuzataman?",
       description:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatem commodi blanditiis atque hic ab doloremque eos quia ea, voluptas quas excepturi culpa ullam ex dolor iure, aliquid illum facere!",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptatem commodi blanditiis atque hic ab doloremque eos quia ea.",
     },
   ];
 
@@ -56,12 +57,13 @@ export const Faq = () => {
       <div className="flex flex-col gap-[30px]">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
+
           return (
             <div key={index}>
               <div
-                className={`${
+                className={`Card ${
                   isOpen ? "bg-[#B9FF66]" : "bg-[#F3F3F3]"
-                } rounded-[45px] px-[57px] py-[41px] border-black border-2 Card`}
+                } rounded-[45px] px-[57px] py-[41px] border-black border-2 transition-colors duration-300`}
               >
                 <div
                   className={`${
@@ -76,11 +78,21 @@ export const Faq = () => {
                     {isOpen ? <Minus /> : <Plus />}
                   </button>
                 </div>
-                {isOpen && (
+
+                <div
+                  ref={(el) => (contentRefs.current[index] = el)}
+                  style={{
+                    height: isOpen
+                      ? contentRefs.current[index]?.scrollHeight + "px"
+                      : "0px",
+                    overflow: "hidden",
+                    transition: "height 0.5s ease",
+                  }}
+                >
                   <div className="mt-[30px]">
                     <p className="font-normal text-[18px]">{faq.description}</p>
                   </div>
-                )}
+                </div>
               </div>
             </div>
           );
